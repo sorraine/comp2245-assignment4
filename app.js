@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let btn = document.getElementById("btn");
-    let result = document.querySelector("#result");
+    var btn = document.getElementById("btn");
+    var result = document.querySelector("#result");
 
     btn.addEventListener("click", function(event) {
         event.preventDefault();
         
-        let value = document.querySelector("#q").value;
-        // console.log(value);
+       var value = document.querySelector("#q").value;
+       
         fetch(`http://localhost/comp2245-assignment4/superheroes.php?query=${value}`)
         .then(response => response.json())
         .then(data => {
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
             let x = document.querySelector("#name")
             x.style.display = "block";
             x.style.color = "red";
-            x.innerHTML = "Superhero not found";
+            x.innerHTML = "Superhero Not Found";
             document.querySelector("ul").style.display = "none";
             document.querySelector("#alias").style.display = "none";
             document.querySelector("#bio").style.display = "none";
