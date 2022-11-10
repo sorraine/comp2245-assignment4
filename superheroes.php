@@ -63,10 +63,20 @@ $superheroes = [
   ], 
 ];
 
-?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+function SArray($x, $array) {
+    foreach ($array as $hero => $value) {
+        if(($value['name'] == $x) or ($value['alias'] == $x)) {
+            return json_encode($value);
+        }
+    }
+}
+
+$command = $_GET['query'];
+if (empty($command)) {
+    echo json_encode($superheroes);
+} else {
+    $result = SArray($command, $superheroes);
+    echo $result;
+}
+?>
